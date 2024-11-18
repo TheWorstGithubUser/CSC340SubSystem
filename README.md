@@ -1,7 +1,7 @@
 # CSC340SubSystem
-Doctor, Pharmacy, and Patient System with Database written in #C
+Doctor, Pharmacy, and Patient System with SQL Database, written in C#
 
 Dakota Castle
 Caleb Abney
 Ray Shively
-Dean Raven
+Raven Dean
