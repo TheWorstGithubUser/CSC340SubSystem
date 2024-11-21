@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +10,24 @@ namespace PatientSubsystem
 {
     internal class Patient
     {
-        public int ID;
-        public string fName;
-        public string lName;
-        public string mName;
-        public string insuranceCardNumber;
-        public int insurerID;
+        private int ID;
+        private string fName;
+        private string lName;
+        private string mName;
         public Patient(string fName, string lName)
         {
+            this.fName = fName;
+            this.lName = lName;
+        }
+
+        public Patient(int id)
+        {
+            ID = id;
+        }
+
+        public Patient(int ID, string fName, string lName)
+        {
+            this.ID = ID;
             this.fName = fName;
             this.lName = lName;
         }
@@ -27,7 +37,22 @@ namespace PatientSubsystem
 
         }
 
-        public void getPatientData()
+        public int GetID()
+        {
+            return ID;
+        }
+
+        public string GetFName()
+        {
+            return fName;
+        }
+
+        public string GetLName()
+        {
+            return lName;
+        }
+
+        public Patient GetPatientData(string username, string password)
         {
             string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
 
@@ -38,35 +63,37 @@ namespace PatientSubsystem
                 Console.WriteLine("opening sql connection");
                 conn.Open();
 
-                string patientRow = "SELECT * FROM 340_rrdc_patients WHERE FirstName = @fName AND LastName = @lName;";
+                string patientRow = "SELECT ID FROM 340_rrdc_patients WHERE UserName = @username AND Password = @password;";
                 Console.WriteLine("creating command");
                 MySqlCommand patCmd = new MySqlCommand(patientRow, conn);
 
                 Console.WriteLine("adding values to command");
-                patCmd.Parameters.AddWithValue("@fName", fName);
-                patCmd.Parameters.AddWithValue("@lName", lName);
+                patCmd.Parameters.AddWithValue("@username", username);
+                patCmd.Parameters.AddWithValue("@password", password);
 
-                
+
                 MySqlDataReader patDat = patCmd.ExecuteReader();
                 Console.WriteLine("Executing Command");
 
                 if (patDat.Read())
                 {
                     ID = patDat.GetInt32(0);
-                    mName = patDat.GetString(2);
-                    insuranceCardNumber = patDat.GetString(4);
-                    insurerID = patDat.GetInt32(5);
-
+                    fName = patDat.GetString(1);
+                    lName = patDat.GetString(3);
                 }
                 Console.WriteLine("Reading data");
 
                 patDat.Close();
                 conn.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
+
+            Patient thisP = new Patient(this.ID, this.fName, this.lName);
+            //Console.WriteLine(thisP.GetID());
+            return thisP;
         }
 
         public void requestAppointment(DateTime d)
@@ -107,14 +134,14 @@ namespace PatientSubsystem
 
                 MySqlCommand addAppointmentNotification = new MySqlCommand(addNotifStr, conn);
 
-                
+
                 addAppointmentNotification.Parameters.AddWithValue("@reqID", latestID);
                 addAppointmentNotification.Parameters.AddWithValue("@reason", reason);
 
                 addAppointmentNotification.ExecuteNonQuery();
                 conn.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
