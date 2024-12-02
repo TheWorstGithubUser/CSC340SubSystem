@@ -76,6 +76,7 @@
             fillPatientPrescriptionButton.TabIndex = 2;
             fillPatientPrescriptionButton.Text = "Fill Patient Prescription";
             fillPatientPrescriptionButton.UseVisualStyleBackColor = false;
+            fillPatientPrescriptionButton.Click += fillPatientPrescriptionButton_Click;
             // 
             // prescriptionPickupFormButton
             // 

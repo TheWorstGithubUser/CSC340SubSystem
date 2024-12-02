@@ -35,7 +35,7 @@ namespace PharmacySubsystem
                     using (var countCommand = new MySqlCommand(countQuery, connection))
                     {
                         int currentPatientCount = Convert.ToInt32(countCommand.ExecuteScalar());
-                        
+
                         Console.WriteLine($"Count: {currentPatientCount}");
                         // Count logic
                         if (currentPatientCount != lastPatientCount)
@@ -192,7 +192,7 @@ namespace PharmacySubsystem
                 if (result == DialogResult.Yes)
                 {
                     MessageBox.Show("Acknowledgement was sent to the doctor.");
-                    
+
                     // Set pending to 0 logic
                     try
                     {
@@ -260,21 +260,21 @@ namespace PharmacySubsystem
                     string query = "SELECT COUNT(*) FROM 340_rrdc_prescriptions WHERE Pending = 1";
                     using (var command = new MySqlCommand(query, connection))
                     {
-                     // Execute the query
-                     int pendingPrescriptionCount = Convert.ToInt32(command.ExecuteScalar());
+                        // Execute the query
+                        int pendingPrescriptionCount = Convert.ToInt32(command.ExecuteScalar());
 
-                     if (pendingPrescriptionCount > 0)
-                     {
-                         // Change the new prescription button color to yellow
-                         newPrescriptionArrivalButton.BackColor = Color.Yellow;
-                         newPrescriptionArrivalButton.ForeColor = Color.Black;
-                     }
-                     else
-                     {
-                         // Reset the new prescription button to original color
-                         newPrescriptionArrivalButton.BackColor = Color.FromArgb(22,22,22);
-                         newPrescriptionArrivalButton.ForeColor = Color.White;
-                     }
+                        if (pendingPrescriptionCount > 0)
+                        {
+                            // Change the new prescription button color to yellow
+                            newPrescriptionArrivalButton.BackColor = Color.Yellow;
+                            newPrescriptionArrivalButton.ForeColor = Color.Black;
+                        }
+                        else
+                        {
+                            // Reset the new prescription button to original color
+                            newPrescriptionArrivalButton.BackColor = Color.FromArgb(22, 22, 22);
+                            newPrescriptionArrivalButton.ForeColor = Color.White;
+                        }
                     }
                 }
             }
@@ -282,6 +282,12 @@ namespace PharmacySubsystem
             {
                 MessageBox.Show($"Error while polling database for new prescriptions: {ex.Message}");
             }
+        }
+
+        private void fillPatientPrescriptionButton_Click(object sender, EventArgs e)
+        {
+            FillPatientPrescriptionForm fillPatientPrescriptionForm = new FillPatientPrescriptionForm();
+            fillPatientPrescriptionForm.Show();
         }
     }
 }

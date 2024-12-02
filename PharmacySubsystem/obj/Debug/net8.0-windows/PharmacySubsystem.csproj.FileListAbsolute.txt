@@ -30,3 +30,4 @@ C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\bin\Debug\net8.0-wind
 C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.csproj.AssemblyReference.cache
 C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\Pharmacy.EBFAEBE8.Up2Date
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.FillPatientPrescriptionForm.resources
