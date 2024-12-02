@@ -31,8 +31,8 @@
             components = new System.ComponentModel.Container();
             newPrescriptionArrivalButton = new Button();
             notifyPatientButton = new Button();
-            incomingRefillRequestButton = new Button();
-            createRefillRequestButton = new Button();
+            fillPatientPrescriptionButton = new Button();
+            prescriptionPickupFormButton = new Button();
             patientListView = new ListView();
             patientListViewLastNameColumn = new ColumnHeader();
             patientListViewMiddleNameColumn = new ColumnHeader();
@@ -66,27 +66,27 @@
             notifyPatientButton.UseVisualStyleBackColor = false;
             notifyPatientButton.Click += notifyPatientButton_Click;
             // 
-            // incomingRefillRequestButton
+            // fillPatientPrescriptionButton
             // 
-            incomingRefillRequestButton.BackColor = Color.FromArgb(22, 22, 22);
-            incomingRefillRequestButton.ForeColor = Color.White;
-            incomingRefillRequestButton.Location = new Point(330, 12);
-            incomingRefillRequestButton.Name = "incomingRefillRequestButton";
-            incomingRefillRequestButton.Size = new Size(153, 62);
-            incomingRefillRequestButton.TabIndex = 2;
-            incomingRefillRequestButton.Text = "Incoming Refill Request";
-            incomingRefillRequestButton.UseVisualStyleBackColor = false;
+            fillPatientPrescriptionButton.BackColor = Color.FromArgb(22, 22, 22);
+            fillPatientPrescriptionButton.ForeColor = Color.White;
+            fillPatientPrescriptionButton.Location = new Point(330, 12);
+            fillPatientPrescriptionButton.Name = "fillPatientPrescriptionButton";
+            fillPatientPrescriptionButton.Size = new Size(153, 62);
+            fillPatientPrescriptionButton.TabIndex = 2;
+            fillPatientPrescriptionButton.Text = "Fill Patient Prescription";
+            fillPatientPrescriptionButton.UseVisualStyleBackColor = false;
             // 
-            // createRefillRequestButton
+            // prescriptionPickupFormButton
             // 
-            createRefillRequestButton.BackColor = Color.FromArgb(22, 22, 22);
-            createRefillRequestButton.ForeColor = Color.White;
-            createRefillRequestButton.Location = new Point(489, 12);
-            createRefillRequestButton.Name = "createRefillRequestButton";
-            createRefillRequestButton.Size = new Size(153, 62);
-            createRefillRequestButton.TabIndex = 3;
-            createRefillRequestButton.Text = "Forward Refill Request";
-            createRefillRequestButton.UseVisualStyleBackColor = false;
+            prescriptionPickupFormButton.BackColor = Color.FromArgb(22, 22, 22);
+            prescriptionPickupFormButton.ForeColor = Color.White;
+            prescriptionPickupFormButton.Location = new Point(489, 12);
+            prescriptionPickupFormButton.Name = "prescriptionPickupFormButton";
+            prescriptionPickupFormButton.Size = new Size(153, 62);
+            prescriptionPickupFormButton.TabIndex = 3;
+            prescriptionPickupFormButton.Text = "Prescription Pickup Form";
+            prescriptionPickupFormButton.UseVisualStyleBackColor = false;
             // 
             // patientListView
             // 
@@ -141,11 +141,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(660, 411);
+            ClientSize = new Size(654, 411);
             Controls.Add(patientListingLabel);
             Controls.Add(patientListView);
-            Controls.Add(createRefillRequestButton);
-            Controls.Add(incomingRefillRequestButton);
+            Controls.Add(prescriptionPickupFormButton);
+            Controls.Add(fillPatientPrescriptionButton);
             Controls.Add(notifyPatientButton);
             Controls.Add(newPrescriptionArrivalButton);
             Name = "PharmacyAppMainForm";
@@ -158,8 +158,8 @@
 
         private Button newPrescriptionArrivalButton;
         private Button notifyPatientButton;
-        private Button incomingRefillRequestButton;
-        private Button createRefillRequestButton;
+        private Button fillPatientPrescriptionButton;
+        private Button prescriptionPickupFormButton;
         private ListView patientListView;
         private ColumnHeader patientListViewLastNameColumn;
         private ColumnHeader patientListViewMiddleNameColumn;

@@ -15,11 +15,11 @@ namespace PharmacySubsystem
 
             // Start DB polling timers
             newPrescriptionPollingTimer.Tick += newPrescriptionPollingTimerTick;
-            newPrescriptionPollingTimer.Interval = 10000;
+            newPrescriptionPollingTimer.Interval = 5000;
             newPrescriptionPollingTimer.Start();
 
             patientListingPollingTimer.Tick += patientListingPollingTimerTick;
-            patientListingPollingTimer.Interval = 10000;
+            patientListingPollingTimer.Interval = 5000;
             patientListingPollingTimer.Start();
         }
 
@@ -223,6 +223,11 @@ namespace PharmacySubsystem
                         MessageBox.Show($"Error updating prescription status: {ex.Message}");
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("There are currently no new prescriptions.", "No New Rx Notifications",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
