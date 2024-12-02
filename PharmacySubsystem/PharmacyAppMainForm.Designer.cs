@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            ListViewItem listViewItem1 = new ListViewItem(new string[] { "", "test1", "test2", "Test3" }, -1);
             newPrescriptionArrivalButton = new Button();
             notifyPatientButton = new Button();
             incomingRefillRequestButton = new Button();
             createRefillRequestButton = new Button();
-            listView1 = new ListView();
+            patientListView = new ListView();
             patientListViewLastNameColumn = new ColumnHeader();
             patientListViewMiddleNameColumn = new ColumnHeader();
             patientListViewFirstNameColumn = new ColumnHeader();
             patientListingLabel = new Label();
             newPrescriptionPollingTimer = new System.Windows.Forms.Timer(components);
+            patientListingPollingTimer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // newPrescriptionArrivalButton
@@ -52,6 +52,7 @@
             newPrescriptionArrivalButton.TabIndex = 0;
             newPrescriptionArrivalButton.Text = "New Prescription";
             newPrescriptionArrivalButton.UseVisualStyleBackColor = false;
+            newPrescriptionArrivalButton.Click += newPrescriptionArrivalButton_Click;
             // 
             // notifyPatientButton
             // 
@@ -63,6 +64,7 @@
             notifyPatientButton.TabIndex = 1;
             notifyPatientButton.Text = "Notify Patient";
             notifyPatientButton.UseVisualStyleBackColor = false;
+            notifyPatientButton.Click += notifyPatientButton_Click;
             // 
             // incomingRefillRequestButton
             // 
@@ -83,22 +85,21 @@
             createRefillRequestButton.Name = "createRefillRequestButton";
             createRefillRequestButton.Size = new Size(153, 62);
             createRefillRequestButton.TabIndex = 3;
-            createRefillRequestButton.Text = "Create Refill Request";
+            createRefillRequestButton.Text = "Forward Refill Request";
             createRefillRequestButton.UseVisualStyleBackColor = false;
             // 
-            // listView1
+            // patientListView
             // 
-            listView1.BackColor = Color.White;
-            listView1.Columns.AddRange(new ColumnHeader[] { patientListViewLastNameColumn, patientListViewMiddleNameColumn, patientListViewFirstNameColumn });
-            listView1.FullRowSelect = true;
-            listView1.Items.AddRange(new ListViewItem[] { listViewItem1 });
-            listView1.Location = new Point(12, 136);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(630, 263);
-            listView1.TabIndex = 4;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            patientListView.BackColor = Color.White;
+            patientListView.Columns.AddRange(new ColumnHeader[] { patientListViewLastNameColumn, patientListViewMiddleNameColumn, patientListViewFirstNameColumn });
+            patientListView.FullRowSelect = true;
+            patientListView.Location = new Point(12, 136);
+            patientListView.MultiSelect = false;
+            patientListView.Name = "patientListView";
+            patientListView.Size = new Size(630, 263);
+            patientListView.TabIndex = 4;
+            patientListView.UseCompatibleStateImageBehavior = false;
+            patientListView.View = View.Details;
             // 
             // patientListViewLastNameColumn
             // 
@@ -131,6 +132,10 @@
             // 
             newPrescriptionPollingTimer.Interval = 5000;
             // 
+            // patientListingPollingTimer
+            // 
+            patientListingPollingTimer.Interval = 5000;
+            // 
             // PharmacyAppMainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -138,7 +143,7 @@
             BackColor = Color.Black;
             ClientSize = new Size(660, 411);
             Controls.Add(patientListingLabel);
-            Controls.Add(listView1);
+            Controls.Add(patientListView);
             Controls.Add(createRefillRequestButton);
             Controls.Add(incomingRefillRequestButton);
             Controls.Add(notifyPatientButton);
@@ -155,11 +160,12 @@
         private Button notifyPatientButton;
         private Button incomingRefillRequestButton;
         private Button createRefillRequestButton;
-        private ListView listView1;
+        private ListView patientListView;
         private ColumnHeader patientListViewLastNameColumn;
         private ColumnHeader patientListViewMiddleNameColumn;
         private ColumnHeader patientListViewFirstNameColumn;
         private Label patientListingLabel;
         private System.Windows.Forms.Timer newPrescriptionPollingTimer;
+        private System.Windows.Forms.Timer patientListingPollingTimer;
     }
 }
