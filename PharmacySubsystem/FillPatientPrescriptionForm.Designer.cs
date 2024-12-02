@@ -33,6 +33,8 @@
             fillPatientPrescriptionPrescriptionsLabel = new Label();
             fillPatientPrescriptionPrescriptionsComboBox = new ComboBox();
             fillPatientPrescriptionsFillButton = new Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            fillPatientPrescriptionsPickupButton = new Button();
             SuspendLayout();
             // 
             // fillPatientPrescriptionPatientsLabel
@@ -83,7 +85,7 @@
             // 
             fillPatientPrescriptionsFillButton.BackColor = Color.FromArgb(22, 22, 22);
             fillPatientPrescriptionsFillButton.ForeColor = Color.White;
-            fillPatientPrescriptionsFillButton.Location = new Point(109, 100);
+            fillPatientPrescriptionsFillButton.Location = new Point(12, 96);
             fillPatientPrescriptionsFillButton.Name = "fillPatientPrescriptionsFillButton";
             fillPatientPrescriptionsFillButton.Size = new Size(153, 62);
             fillPatientPrescriptionsFillButton.TabIndex = 4;
@@ -91,12 +93,25 @@
             fillPatientPrescriptionsFillButton.UseVisualStyleBackColor = false;
             fillPatientPrescriptionsFillButton.Click += fillPatientPrescriptionsFillButton_Click;
             // 
+            // fillPatientPrescriptionsPickupButton
+            // 
+            fillPatientPrescriptionsPickupButton.BackColor = Color.FromArgb(22, 22, 22);
+            fillPatientPrescriptionsPickupButton.ForeColor = Color.White;
+            fillPatientPrescriptionsPickupButton.Location = new Point(175, 96);
+            fillPatientPrescriptionsPickupButton.Name = "fillPatientPrescriptionsPickupButton";
+            fillPatientPrescriptionsPickupButton.Size = new Size(153, 62);
+            fillPatientPrescriptionsPickupButton.TabIndex = 5;
+            fillPatientPrescriptionsPickupButton.Text = "Pickup Prescription";
+            fillPatientPrescriptionsPickupButton.UseVisualStyleBackColor = false;
+            fillPatientPrescriptionsPickupButton.Click += fillPatientPrescriptionsPickupButton_Click;
+            // 
             // FillPatientPrescriptionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(349, 193);
+            Controls.Add(fillPatientPrescriptionsPickupButton);
             Controls.Add(fillPatientPrescriptionsFillButton);
             Controls.Add(fillPatientPrescriptionPrescriptionsComboBox);
             Controls.Add(fillPatientPrescriptionPrescriptionsLabel);
@@ -115,5 +130,7 @@
         private Label fillPatientPrescriptionPrescriptionsLabel;
         private ComboBox fillPatientPrescriptionPrescriptionsComboBox;
         private Button fillPatientPrescriptionsFillButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button fillPatientPrescriptionsPickupButton;
     }
 }

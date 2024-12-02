@@ -123,7 +123,7 @@ namespace PharmacySubsystem
                                 string prescriptionName = reader.GetString("Name");
                                 int prescriptionID = reader.GetInt32("ID");
 
-                                var prescriptionKey = new int[] { prescriptionID, prescriptionRefills};
+                                var prescriptionKey = new int[] { prescriptionID, prescriptionRefills };
                                 var prescriptionValue = prescriptionName;
 
                                 fillPatientPrescriptionPrescriptionsComboBox.Items.Add(
@@ -255,6 +255,49 @@ namespace PharmacySubsystem
                     "Prescription Selected",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
+            }
+        }
+
+        private void fillPatientPrescriptionsPickupButton_Click(object sender, EventArgs e)
+        {
+            if (selectedPatientID == -1 || selectedPrescriptionID == -1)
+            {
+                MessageBox.Show("You must select a patient and a prescription first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // update the received field to 1 for the selected prescription
+                    string updateReceivedQuery =
+                        "UPDATE 340_rrdc_prescriptions SET Received = 1 WHERE ID = @PrescriptionID";
+
+                    using (var command = new MySqlCommand(updateReceivedQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@PrescriptionID", selectedPrescriptionID);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Prescription marked as picked up successfully.", "Success",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update prescription status.", "Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while updating the prescription status: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

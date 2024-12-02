@@ -31,8 +31,7 @@
             components = new System.ComponentModel.Container();
             newPrescriptionArrivalButton = new Button();
             notifyPatientButton = new Button();
-            fillPatientPrescriptionButton = new Button();
-            prescriptionPickupFormButton = new Button();
+            fillOrPickupPatientPrescriptionButton = new Button();
             patientListView = new ListView();
             patientListViewLastNameColumn = new ColumnHeader();
             patientListViewMiddleNameColumn = new ColumnHeader();
@@ -66,28 +65,17 @@
             notifyPatientButton.UseVisualStyleBackColor = false;
             notifyPatientButton.Click += notifyPatientButton_Click;
             // 
-            // fillPatientPrescriptionButton
+            // fillOrPickupPatientPrescriptionButton
             // 
-            fillPatientPrescriptionButton.BackColor = Color.FromArgb(22, 22, 22);
-            fillPatientPrescriptionButton.ForeColor = Color.White;
-            fillPatientPrescriptionButton.Location = new Point(330, 12);
-            fillPatientPrescriptionButton.Name = "fillPatientPrescriptionButton";
-            fillPatientPrescriptionButton.Size = new Size(153, 62);
-            fillPatientPrescriptionButton.TabIndex = 2;
-            fillPatientPrescriptionButton.Text = "Fill Patient Prescription";
-            fillPatientPrescriptionButton.UseVisualStyleBackColor = false;
-            fillPatientPrescriptionButton.Click += fillPatientPrescriptionButton_Click;
-            // 
-            // prescriptionPickupFormButton
-            // 
-            prescriptionPickupFormButton.BackColor = Color.FromArgb(22, 22, 22);
-            prescriptionPickupFormButton.ForeColor = Color.White;
-            prescriptionPickupFormButton.Location = new Point(489, 12);
-            prescriptionPickupFormButton.Name = "prescriptionPickupFormButton";
-            prescriptionPickupFormButton.Size = new Size(153, 62);
-            prescriptionPickupFormButton.TabIndex = 3;
-            prescriptionPickupFormButton.Text = "Prescription Pickup Form";
-            prescriptionPickupFormButton.UseVisualStyleBackColor = false;
+            fillOrPickupPatientPrescriptionButton.BackColor = Color.FromArgb(22, 22, 22);
+            fillOrPickupPatientPrescriptionButton.ForeColor = Color.White;
+            fillOrPickupPatientPrescriptionButton.Location = new Point(330, 12);
+            fillOrPickupPatientPrescriptionButton.Name = "fillOrPickupPatientPrescriptionButton";
+            fillOrPickupPatientPrescriptionButton.Size = new Size(312, 62);
+            fillOrPickupPatientPrescriptionButton.TabIndex = 2;
+            fillOrPickupPatientPrescriptionButton.Text = "Fill / Pickup Patient Prescription";
+            fillOrPickupPatientPrescriptionButton.UseVisualStyleBackColor = false;
+            fillOrPickupPatientPrescriptionButton.Click += fillPatientPrescriptionButton_Click;
             // 
             // patientListView
             // 
@@ -145,8 +133,7 @@
             ClientSize = new Size(654, 411);
             Controls.Add(patientListingLabel);
             Controls.Add(patientListView);
-            Controls.Add(prescriptionPickupFormButton);
-            Controls.Add(fillPatientPrescriptionButton);
+            Controls.Add(fillOrPickupPatientPrescriptionButton);
             Controls.Add(notifyPatientButton);
             Controls.Add(newPrescriptionArrivalButton);
             Name = "PharmacyAppMainForm";
@@ -159,8 +146,7 @@
 
         private Button newPrescriptionArrivalButton;
         private Button notifyPatientButton;
-        private Button fillPatientPrescriptionButton;
-        private Button prescriptionPickupFormButton;
+        private Button fillOrPickupPatientPrescriptionButton;
         private ListView patientListView;
         private ColumnHeader patientListViewLastNameColumn;
         private ColumnHeader patientListViewMiddleNameColumn;
