@@ -124,7 +124,41 @@ namespace PharmacySubsystem
 
                 MessageBox.Show(message, "Patient Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // TODO: Add logic here to send notification to patient
+                // Patient notification logic
+                try
+                {
+                    using (var connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        string patientNotificationQuery =
+                            "INSERT INTO 340_rrdc_notifications (New, Body, ReceiverID) VALUES (1, @Body, @ReceiverID)";
+
+                        using (var command = new MySqlCommand(patientNotificationQuery, connection))
+                        {
+                            string body = "You have a prescription ready!";
+                            command.Parameters.AddWithValue("@Body", body);
+                            command.Parameters.AddWithValue("@ReceiverID", patientID);
+
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Patient notified successfully.", "Notification Sent",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to send notification to the patient.", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while sending the notification: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
