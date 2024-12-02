@@ -55,6 +55,7 @@
             fillPatientPrescriptionPatientsComboBox.Size = new Size(194, 23);
             fillPatientPrescriptionPatientsComboBox.Sorted = true;
             fillPatientPrescriptionPatientsComboBox.TabIndex = 1;
+            fillPatientPrescriptionPatientsComboBox.SelectedIndexChanged += fillPatientPrescriptionPatientsComboBox_SelectedIndexChanged;
             // 
             // fillPatientPrescriptionPrescriptionsLabel
             // 
@@ -76,6 +77,7 @@
             fillPatientPrescriptionPrescriptionsComboBox.Name = "fillPatientPrescriptionPrescriptionsComboBox";
             fillPatientPrescriptionPrescriptionsComboBox.Size = new Size(194, 23);
             fillPatientPrescriptionPrescriptionsComboBox.TabIndex = 3;
+            fillPatientPrescriptionPrescriptionsComboBox.SelectedIndexChanged += fillPatientPrescriptionPrescriptionsComboBox_SelectedIndexChanged;
             // 
             // fillPatientPrescriptionsFillButton
             // 
@@ -87,6 +89,7 @@
             fillPatientPrescriptionsFillButton.TabIndex = 4;
             fillPatientPrescriptionsFillButton.Text = "Fill Prescription";
             fillPatientPrescriptionsFillButton.UseVisualStyleBackColor = false;
+            fillPatientPrescriptionsFillButton.Click += fillPatientPrescriptionsFillButton_Click;
             // 
             // FillPatientPrescriptionForm
             // 
