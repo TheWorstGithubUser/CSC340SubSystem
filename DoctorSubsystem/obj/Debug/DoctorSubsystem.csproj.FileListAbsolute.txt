@@ -1,0 +1,4 @@
+C:\Users\Raven\Downloads\CSC340SubSystem\DoctorSubsystem\obj\Debug\DoctorSubsystem.csproj.AssemblyReference.cache
+C:\Users\Raven\Downloads\CSC340SubSystem\DoctorSubsystem\obj\Debug\DoctorSubsystem.Properties.Resources.resources
+C:\Users\Raven\Downloads\CSC340SubSystem\DoctorSubsystem\obj\Debug\DoctorSubsystem.csproj.GenerateResource.cache
+C:\Users\Raven\Downloads\CSC340SubSystem\DoctorSubsystem\obj\Debug\DoctorSubsystem.csproj.CoreCompileInputs.cache

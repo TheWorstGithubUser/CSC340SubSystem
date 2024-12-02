@@ -1,0 +1,17 @@
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\bin\Debug\net8.0-windows\PharmacySubsystem.exe
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\bin\Debug\net8.0-windows\PharmacySubsystem.deps.json
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\bin\Debug\net8.0-windows\PharmacySubsystem.runtimeconfig.json
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\bin\Debug\net8.0-windows\PharmacySubsystem.dll
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\bin\Debug\net8.0-windows\PharmacySubsystem.pdb
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.PharmacyAppMainForm.resources
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.csproj.GenerateResource.cache
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.AssemblyInfoInputs.cache
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.AssemblyInfo.cs
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.csproj.CoreCompileInputs.cache
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.sourcelink.json
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.dll
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\refint\PharmacySubsystem.dll
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.pdb
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\PharmacySubsystem.genruntimeconfig.cache
+C:\Users\Raven\Downloads\CSC340SubSystem\PharmacySubsystem\obj\Debug\net8.0-windows\ref\PharmacySubsystem.dll
