@@ -13,7 +13,7 @@ using System;
 
 namespace DoctorSubsystem
 {
-        internal class Doctor
+    internal class Doctor
     {
         private int ID;
         private string fName;
@@ -67,7 +67,7 @@ namespace DoctorSubsystem
                 Console.WriteLine("opening sql connection");
                 conn.Open();
 
-                string doctorRow = "SELECT ID FROM 340_rrdc_doctors WHERE UserName = @username AND Password = @password;";
+                string doctorRow = "SELECT * FROM 340_rrdc_doctors WHERE UserName = @username AND Password = @password;";
                 Console.WriteLine("creating command");
                 MySqlCommand patCmd = new MySqlCommand(doctorRow, conn);
                 Console.WriteLine("adding values to command");
@@ -95,9 +95,7 @@ namespace DoctorSubsystem
             }
 
             Doctor thisD = new Doctor(this.ID, this.fName, this.lName);
-            return thisD;   
+            return thisD;
         }
     }
 }
-
-
