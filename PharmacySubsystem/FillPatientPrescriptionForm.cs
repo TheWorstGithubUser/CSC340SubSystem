@@ -207,7 +207,7 @@ namespace PharmacySubsystem
 
                             // Decrement refill count
                             string updateRefillQuery =
-                                "UPDATE 340_rrdc_prescriptions SET Refills = @newRefillCount WHERE ID = @PrescriptionID";
+                                "UPDATE 340_rrdc_prescriptions SET Refills = @newRefillCount, Received = 0 WHERE ID = @PrescriptionID";
                             using (var command = new MySqlCommand(updateRefillQuery, connection))
                             {
                                 command.Parameters.AddWithValue("@PrescriptionID", selectedPrescriptionID);
