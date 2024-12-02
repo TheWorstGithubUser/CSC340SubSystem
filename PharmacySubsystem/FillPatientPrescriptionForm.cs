@@ -70,7 +70,7 @@ namespace PharmacySubsystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error fetching patients: {ex.Message}");
+                MessageBox.Show($"Error fetching patients: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -102,7 +102,7 @@ namespace PharmacySubsystem
                     string prescriptionsQuery =
                         "SELECT Refills, Name, ID FROM 340_rrdc_prescriptions WHERE PatientID = @PatientID";
 
-                    MessageBox.Show($"Selected patient ID: {selectedPatientID}");
+                    //MessageBox.Show($"Selected patient ID: {selectedPatientID}");
 
                     using (var command = new MySqlCommand(prescriptionsQuery, connection))
                     {
@@ -136,7 +136,7 @@ namespace PharmacySubsystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error fetching prescription details: {ex.Message}");
+                MessageBox.Show($"Error fetching prescription details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -251,10 +251,10 @@ namespace PharmacySubsystem
                 selectedPrescriptionRefills = prescriptionKey[1];
                 selectedPrescriptionName = selectedPrescription.Value;
 
-                MessageBox.Show($"Selected Prescription: {selectedPrescriptionName}\nPrescription ID: {selectedPrescriptionID}\nRefills: {selectedPrescriptionRefills}",
-                    "Prescription Selected",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                //MessageBox.Show($"Selected Prescription: {selectedPrescriptionName}\nPrescription ID: {selectedPrescriptionID}\nRefills: {selectedPrescriptionRefills}",
+                    //"Prescription Selected",
+                    //MessageBoxButtons.OK,
+                    //MessageBoxIcon.Warning);
             }
         }
 

@@ -48,7 +48,7 @@ namespace PharmacySubsystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error while polling database for patient count: {ex.Message}");
+                MessageBox.Show($"Error while polling database for patient count: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -87,7 +87,7 @@ namespace PharmacySubsystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error while fetching patient list: {ex.Message}");
+                MessageBox.Show($"Error while fetching patient list: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -122,7 +122,7 @@ namespace PharmacySubsystem
                 string middleInitial = !string.IsNullOrEmpty(middleName) ? middleName[0].ToString() + "." : "";
                 string message = $"Notifying {firstName} {middleInitial} {lastName}";
 
-                MessageBox.Show(message, "Patient Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(message, "Patient Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Patient notification logic
                 try
@@ -174,6 +174,7 @@ namespace PharmacySubsystem
                 string firstName = "";
                 string middleName = "";
                 string lastName = "";
+                string prescriptionName = "";
                 int prescriptionID = -1;
 
                 try
@@ -183,7 +184,7 @@ namespace PharmacySubsystem
                         connection.Open();
 
                         string mostRecentPrescriptionQuery =
-                            "SELECT p.FirstName, p.MiddleName, p.LastName, pr.ID " +
+                            "SELECT p.FirstName, p.MiddleName, p.LastName, pr.ID, pr.Name " +
                             "FROM 340_rrdc_prescriptions pr " +
                             "JOIN 340_rrdc_patients p ON pr.PatientID = p.ID " +
                             "WHERE pr.Pending = 1 " +
@@ -199,6 +200,7 @@ namespace PharmacySubsystem
                                     middleName = reader.GetString("MiddleName");
                                     lastName = reader.GetString("LastName");
                                     prescriptionID = reader.GetInt32("ID");
+                                    prescriptionName = reader.GetString("Name");
                                 }
                             }
                         }
@@ -206,7 +208,7 @@ namespace PharmacySubsystem
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error retrieving prescription details: {ex.Message}");
+                    MessageBox.Show($"Error retrieving prescription details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -214,7 +216,7 @@ namespace PharmacySubsystem
                 string middleInitial = !string.IsNullOrEmpty(middleName) ? middleName[0].ToString() + "." : "";
 
                 // Build the dialog message
-                string message = $"{firstName} {middleInitial} {lastName} has a new prescription. Do you want to send an acknowledgement to the doctor?";
+                string message = $"{firstName} {middleInitial} {lastName} has a new prescription for {prescriptionName}. Do you want to send an acknowledgement to the doctor?";
 
                 DialogResult result = MessageBox.Show(
                     message,
@@ -225,7 +227,7 @@ namespace PharmacySubsystem
 
                 if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Acknowledgement was sent to the doctor.");
+                    MessageBox.Show("Acknowledgement was successfully sent to the doctor.", "Successful Acknowledgement", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Set pending to 0 logic
                     try
@@ -243,18 +245,18 @@ namespace PharmacySubsystem
 
                                 if (rowsAffected > 0)
                                 {
-                                    MessageBox.Show("Prescription status updated successfully.");
+                                    MessageBox.Show("Prescription status updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Failed to update prescription status");
+                                    MessageBox.Show("Failed to update prescription status", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error updating prescription status: {ex.Message}");
+                        MessageBox.Show($"Error updating prescription status: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -314,7 +316,7 @@ namespace PharmacySubsystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error while polling database for new prescriptions: {ex.Message}");
+                MessageBox.Show($"Error while polling database for new prescriptions: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
