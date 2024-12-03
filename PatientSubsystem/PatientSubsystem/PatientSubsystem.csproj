@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PatientSubsystem.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -98,16 +101,54 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="NotificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="NotificationForm.Designer.cs">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalRecords.Designer.cs">
+      <DependentUpon>MedicalRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prescription.cs" />
+    <Compile Include="RequestMeds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestMeds.Designer.cs">
+      <DependentUpon>RequestMeds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MedicalRecords.resx">
+      <DependentUpon>MedicalRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificationForm.resx">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestMeds.resx">
+      <DependentUpon>RequestMeds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -21,16 +21,20 @@ namespace PatientSubsystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            //set the main screen
-            Main main = new Main();
             //get the required data of the patient
             thisP = thisP.GetPatientData(usernameBox.Text, passwordBox.Text);
 
-            //send needed variables to main
-            main.SetPatient(thisP.GetID(), thisP.GetFName(), thisP.GetLName());
+            //set the main screen
+            Main main = new Main(thisP.GetID());
             //show main
+            this.Hide();
             main.ShowDialog();
-            this.Close();
+            this.Show();
+        }
+
+        private void passwordBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
