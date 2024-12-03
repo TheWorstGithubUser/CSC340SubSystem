@@ -29,67 +29,89 @@ namespace DoctorSubsystem_VS
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.recordView = new System.Windows.Forms.ListView();
+            this.dateColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.itemColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pendingView = new System.Windows.Forms.ListView();
+            this.idColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.receivedColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.moveToRecordButton = new System.Windows.Forms.Button();
             this.prescriptionsLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.dateColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.itemColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.detailsColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.idColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.receivedColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // listView1
+            // recordView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.recordView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.dateColumn,
-            this.itemColumn,
-            this.detailsColumn});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.LabelWrap = false;
-            this.listView1.Location = new System.Drawing.Point(12, 29);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(486, 359);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.itemColumn});
+            this.recordView.FullRowSelect = true;
+            this.recordView.GridLines = true;
+            this.recordView.HideSelection = false;
+            this.recordView.LabelWrap = false;
+            this.recordView.Location = new System.Drawing.Point(12, 29);
+            this.recordView.Name = "recordView";
+            this.recordView.Size = new System.Drawing.Size(304, 359);
+            this.recordView.TabIndex = 0;
+            this.recordView.UseCompatibleStateImageBehavior = false;
+            this.recordView.View = System.Windows.Forms.View.Details;
+            this.recordView.SelectedIndexChanged += new System.EventHandler(this.recordView_SelectedIndexChanged);
             // 
-            // listView2
+            // dateColumn
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.dateColumn.Tag = "";
+            this.dateColumn.Text = "Date";
+            this.dateColumn.Width = 120;
+            // 
+            // itemColumn
+            // 
+            this.itemColumn.Text = "Action";
+            this.itemColumn.Width = 180;
+            // 
+            // pendingView
+            // 
+            this.pendingView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.idColumn,
             this.receivedColumn});
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.HideSelection = false;
-            this.listView2.LabelWrap = false;
-            this.listView2.Location = new System.Drawing.Point(533, 29);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(255, 359);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.pendingView.FullRowSelect = true;
+            this.pendingView.GridLines = true;
+            this.pendingView.HideSelection = false;
+            this.pendingView.LabelWrap = false;
+            this.pendingView.Location = new System.Drawing.Point(360, 29);
+            this.pendingView.Name = "pendingView";
+            this.pendingView.Size = new System.Drawing.Size(255, 359);
+            this.pendingView.TabIndex = 1;
+            this.pendingView.UseCompatibleStateImageBehavior = false;
+            this.pendingView.View = System.Windows.Forms.View.Details;
+            this.pendingView.SelectedIndexChanged += new System.EventHandler(this.pendingView_SelectedIndexChanged);
             // 
-            // button1
+            // idColumn
             // 
-            this.button1.Location = new System.Drawing.Point(533, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 44);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Add to Record";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.idColumn.Text = "Prescription #";
+            this.idColumn.Width = 171;
+            // 
+            // receivedColumn
+            // 
+            this.receivedColumn.Text = "Received?";
+            this.receivedColumn.Width = 80;
+            // 
+            // moveToRecordButton
+            // 
+            this.moveToRecordButton.Enabled = false;
+            this.moveToRecordButton.Location = new System.Drawing.Point(360, 394);
+            this.moveToRecordButton.Name = "moveToRecordButton";
+            this.moveToRecordButton.Size = new System.Drawing.Size(147, 44);
+            this.moveToRecordButton.TabIndex = 2;
+            this.moveToRecordButton.Text = "Add to Record";
+            this.moveToRecordButton.UseVisualStyleBackColor = true;
+            this.moveToRecordButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // prescriptionsLabel
             // 
             this.prescriptionsLabel.AutoSize = true;
-            this.prescriptionsLabel.Location = new System.Drawing.Point(530, 9);
+            this.prescriptionsLabel.Location = new System.Drawing.Point(357, 9);
             this.prescriptionsLabel.Name = "prescriptionsLabel";
             this.prescriptionsLabel.Size = new System.Drawing.Size(150, 17);
             this.prescriptionsLabel.TabIndex = 3;
@@ -107,7 +129,7 @@ namespace DoctorSubsystem_VS
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(686, 394);
+            this.button2.Location = new System.Drawing.Point(513, 394);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 44);
             this.button2.TabIndex = 5;
@@ -125,44 +147,18 @@ namespace DoctorSubsystem_VS
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dateColumn
-            // 
-            this.dateColumn.Tag = "";
-            this.dateColumn.Text = "Date";
-            this.dateColumn.Width = 102;
-            // 
-            // itemColumn
-            // 
-            this.itemColumn.Text = "Action";
-            this.itemColumn.Width = 110;
-            // 
-            // detailsColumn
-            // 
-            this.detailsColumn.Text = "Details";
-            this.detailsColumn.Width = 265;
-            // 
-            // idColumn
-            // 
-            this.idColumn.Text = "Prescription #";
-            this.idColumn.Width = 171;
-            // 
-            // receivedColumn
-            // 
-            this.receivedColumn.Text = "Received?";
-            this.receivedColumn.Width = 80;
-            // 
             // PatientRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(627, 450);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.prescriptionsLabel);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.moveToRecordButton);
+            this.Controls.Add(this.pendingView);
+            this.Controls.Add(this.recordView);
             this.Name = "PatientRecordForm";
             this.Text = "Patient Record";
             this.ResumeLayout(false);
@@ -172,16 +168,15 @@ namespace DoctorSubsystem_VS
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView recordView;
+        private System.Windows.Forms.ListView pendingView;
+        private System.Windows.Forms.Button moveToRecordButton;
         private System.Windows.Forms.Label prescriptionsLabel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ColumnHeader dateColumn;
         private System.Windows.Forms.ColumnHeader itemColumn;
-        private System.Windows.Forms.ColumnHeader detailsColumn;
         private System.Windows.Forms.ColumnHeader idColumn;
         private System.Windows.Forms.ColumnHeader receivedColumn;
     }

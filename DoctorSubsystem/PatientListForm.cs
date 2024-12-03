@@ -26,6 +26,18 @@ namespace DoctorSubsystem_VS
             {
                 conn.Open();
 
+                string countPatientsStr = "SELECT COUNT(*) FROM 340_rrdc_patients";
+                MySqlCommand countPatientsCmd = new MySqlCommand(countPatientsStr, conn);
+
+                MySqlDataReader patientCount = countPatientsCmd.ExecuteReader();
+
+                if (patientCount.Read())
+                {
+                    patIDs = new int[patientCount.GetInt32(0)];
+                }
+
+                patientCount.Close();
+
                 string getPatientsStr = "SELECT * FROM 340_rrdc_patients ORDER BY LastName";
                 MySqlCommand getPatientsCmd = new MySqlCommand(getPatientsStr, conn);
 

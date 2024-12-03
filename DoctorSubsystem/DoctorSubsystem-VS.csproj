@@ -98,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreatePrescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePrescriptionForm.Designer.cs">
+      <DependentUpon>CreatePrescriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <Compile Include="RequestInfo.Designer.cs">
       <DependentUpon>RequestInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreatePrescriptionForm.resx">
+      <DependentUpon>CreatePrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

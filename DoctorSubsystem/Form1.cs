@@ -16,20 +16,17 @@ namespace DoctorSubsystem_VS
     {
         string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
         MySqlConnection conn;
-        ListView blankList;
 
         public Form1()
         {
             InitializeComponent();
-
-            blankList = this.notifsListView;
 
             conn = new MySqlConnection(connStr);
             try
             {
                 conn.Open();
 
-                string getNotifsStr = "SELECT * FROM 340_rrdc_notifications ORDER BY ReceivedOn";
+                string getNotifsStr = "SELECT * FROM 340_rrdc_notifications ORDER BY ReceivedOn DESC";
                 MySqlCommand getNotifsCmd = new MySqlCommand(getNotifsStr, conn);
 
                 MySqlDataReader notifData = getNotifsCmd.ExecuteReader();
@@ -55,7 +52,7 @@ namespace DoctorSubsystem_VS
 
                     conn.Open();
 
-                    string showNewNotifsStr = "SELECT * FROM 340_rrdc_notifications WHERE New = 1 ORDER BY ReceivedOn";
+                    string showNewNotifsStr = "SELECT * FROM 340_rrdc_notifications WHERE New = 1 ORDER BY ReceivedOn DESC";
                     MySqlCommand showNewNotifsCmd = new MySqlCommand(showNewNotifsStr, conn);
 
                     MySqlDataReader newNotifData = showNewNotifsCmd.ExecuteReader();
@@ -71,7 +68,7 @@ namespace DoctorSubsystem_VS
                     //add query to fill info box with all notifs
                     conn.Open();
 
-                    string getNotifsStr = "SELECT * FROM 340_rrdc_notifications ORDER BY ReceivedOn";
+                    string getNotifsStr = "SELECT * FROM 340_rrdc_notifications ORDER BY ReceivedOn DESC";
                     MySqlCommand getNotifsCmd = new MySqlCommand(getNotifsStr, conn);
 
                     MySqlDataReader notifData = getNotifsCmd.ExecuteReader();
@@ -97,9 +94,10 @@ namespace DoctorSubsystem_VS
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void createPrescriptionButton_Click(object sender, EventArgs e)
         {
-            //create prescrip
+            Form createPrescrip = new CreatePrescriptionForm();
+            createPrescrip.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -125,7 +123,7 @@ namespace DoctorSubsystem_VS
             Console.WriteLine(selectedID);
         }
 
-        private void displayNotifs(MySqlDataReader reader)
+        public void displayNotifs(MySqlDataReader reader)
         {
             notifsListView.Items.Clear();
             while (reader.Read())
@@ -134,6 +132,20 @@ namespace DoctorSubsystem_VS
                 ListViewItem lvi = new ListViewItem(newItem);
                 notifsListView.Items.Add(lvi);
             }
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            string getNotifsStr = "SELECT * FROM 340_rrdc_notifications ORDER BY ReceivedOn DESC";
+            MySqlCommand getNotifsCmd = new MySqlCommand(getNotifsStr, conn);
+
+            MySqlDataReader notifData = getNotifsCmd.ExecuteReader();
+
+            displayNotifs(notifData);
+
+            conn.Close();
         }
     }
 }
