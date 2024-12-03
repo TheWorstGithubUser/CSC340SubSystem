@@ -117,7 +117,11 @@
             Controls.Add(fillPatientPrescriptionPrescriptionsLabel);
             Controls.Add(fillPatientPrescriptionPatientsComboBox);
             Controls.Add(fillPatientPrescriptionPatientsLabel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FillPatientPrescriptionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Fill Patient Prescription";
             ResumeLayout(false);
             PerformLayout();

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj": {}
+    "C:\\Users\\raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj": {
+    "C:\\Users\\raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj",
+        "projectUniqueName": "C:\\Users\\raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj",
         "projectName": "PharmacySubsystem",
-        "projectPath": "C:\\Users\\Raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj",
-        "packagesPath": "C:\\Users\\Raven\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\obj\\",
+        "projectPath": "C:\\Users\\raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\PharmacySubsystem.csproj",
+        "packagesPath": "C:\\Users\\raven\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\raven\\Downloads\\CSC340SubSystem\\PharmacySubsystem\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Raven\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\raven\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
@@ -42,9 +39,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -74,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

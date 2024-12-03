@@ -136,7 +136,11 @@
             Controls.Add(fillOrPickupPatientPrescriptionButton);
             Controls.Add(notifyPatientButton);
             Controls.Add(newPrescriptionArrivalButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
             Name = "PharmacyAppMainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Pharmacy System";
             ResumeLayout(false);
             PerformLayout();

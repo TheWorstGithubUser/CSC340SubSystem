@@ -15,11 +15,11 @@ namespace PharmacySubsystem
 
             // Start DB polling timers
             newPrescriptionPollingTimer.Tick += newPrescriptionPollingTimerTick;
-            newPrescriptionPollingTimer.Interval = 5000;
+            newPrescriptionPollingTimer.Interval = 2000;
             newPrescriptionPollingTimer.Start();
 
             patientListingPollingTimer.Tick += patientListingPollingTimerTick;
-            patientListingPollingTimer.Interval = 5000;
+            patientListingPollingTimer.Interval = 2000;
             patientListingPollingTimer.Start();
         }
 
