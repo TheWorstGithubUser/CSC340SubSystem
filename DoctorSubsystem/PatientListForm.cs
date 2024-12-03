@@ -21,6 +21,7 @@ namespace DoctorSubsystem_VS
         {
             InitializeComponent();
 
+            //get count of patients for IDs later, and list patients in the list view
             conn = new MySqlConnection(connStr);
             try
             {
@@ -53,10 +54,7 @@ namespace DoctorSubsystem_VS
             }
         }
 
-        private void PatientListForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        //take input in the text box to search patients by last name
         private void button1_Click(object sender, EventArgs e)
         {
             //search by last name
@@ -84,6 +82,7 @@ namespace DoctorSubsystem_VS
             }
         }
 
+        //opens the record of the patient selected in the list view
         private void OpenRecordButton_Click(object sender, EventArgs e)
         {
             int selectedID = patIDs[patientListView.SelectedIndices[0]];
@@ -91,6 +90,7 @@ namespace DoctorSubsystem_VS
             patientRecord.Show();
         }
 
+        //display read patients
         private void displayPatients(MySqlDataReader reader)
         {
             patientListView.Items.Clear();
@@ -106,6 +106,7 @@ namespace DoctorSubsystem_VS
             }
         }
 
+        //go back to showing all patients (used to get back from a search)
         private void showAllButton_Click(object sender, EventArgs e)
         {
             conn = new MySqlConnection(connStr);

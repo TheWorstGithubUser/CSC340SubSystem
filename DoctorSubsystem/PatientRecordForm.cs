@@ -24,6 +24,8 @@ namespace DoctorSubsystem_VS
             this.patID = patID;
 
             conn = new MySqlConnection(connStr);
+
+            //fill record and pending prescriptions (ones that haven't been added to record yet) in their respective list views
             try
             {
                 conn.Open();
@@ -81,17 +83,14 @@ namespace DoctorSubsystem_VS
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //open record details from record list view
         private void button2_Click(object sender, EventArgs e)
         {
             Form recordItemDetailsForm = new RecordItemDetailsForm(patID, prescripIDs[recordView.SelectedIndices[0]]);
             recordItemDetailsForm.Show();
         }
 
+        //move a pending prescription to the record
         private void button1_Click(object sender, EventArgs e)
         {
             ListViewItem prescription = pendingView.SelectedItems[0];
@@ -111,22 +110,20 @@ namespace DoctorSubsystem_VS
             moveToRecordButton.Enabled = false;
         }
 
+        //open the details of a pending prescription
         private void button3_Click(object sender, EventArgs e)
         {
             Form recordItemDetailsForm = new RecordItemDetailsForm(patID, prescripIDs[recordView.SelectedIndices[0]]);
             recordItemDetailsForm.Show();
         }
-
-        private void displayRecords(MySqlDataReader reader)
-        {
-
-        }
-
+        
+        //input validation for moving pending to record
         private void pendingView_SelectedIndexChanged(object sender, EventArgs e)
         {
             moveToRecordButton.Enabled = true;
         }
 
+        //add members of the patients record to the list view
         private void fillRecordsTable(MySqlConnection conn)
         {
             string initIDArrayStr = "SELECT COUNT(*) FROM 340_rrdc_prescriptions WHERE PatientID = @id AND Received = 1 ORDER BY LastModified DESC";
@@ -159,9 +156,5 @@ namespace DoctorSubsystem_VS
             patientRecords.Close();
         }
 
-        private void recordView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

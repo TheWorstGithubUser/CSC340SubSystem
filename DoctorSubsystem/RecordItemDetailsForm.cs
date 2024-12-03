@@ -24,6 +24,7 @@ namespace DoctorSubsystem_VS
 
             conn = new MySqlConnection(connStr);
 
+            //get relevant IDs and use to fill the form
             this.patID = patID;
             this.prescripID = prescripID;
 
@@ -31,6 +32,7 @@ namespace DoctorSubsystem_VS
 
         }
 
+        //enable controls for editing
         private void editButton_Click(object sender, EventArgs e)
         {
             refillsTextBox.Enabled = true;
@@ -39,6 +41,7 @@ namespace DoctorSubsystem_VS
             currentRefill = refillsTextBox.Text;
         }
 
+        //confirm and commit edits to the db
         private void saveButton_Click(object sender, EventArgs e)
         {
             refillsTextBox.Enabled = false;
@@ -69,6 +72,7 @@ namespace DoctorSubsystem_VS
             }
         }
 
+        //populate the textboxes and other controls with data from the patient
         private void fillInfo(MySqlConnection conn)
         {
             conn.Open();

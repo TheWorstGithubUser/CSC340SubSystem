@@ -28,6 +28,7 @@ namespace DoctorSubsystem_VS
 
             conn.Open();
 
+            //get number of patients for storing patient ids
             string numPatStr = "SELECT COUNT(*) FROM 340_rrdc_patients";
             MySqlCommand numPatCmd = new MySqlCommand(numPatStr, conn);
             MySqlDataReader numPatRdr = numPatCmd.ExecuteReader();
@@ -36,6 +37,7 @@ namespace DoctorSubsystem_VS
 
             numPatRdr.Close();
 
+            //put patient names into the dropdown list
             string namesDropdownStr = "SELECT ID, FirstName, LastName FROM 340_rrdc_patients ORDER BY LastName";
             MySqlCommand namesDropdownCmd = new MySqlCommand(namesDropdownStr, conn);
 
@@ -52,6 +54,7 @@ namespace DoctorSubsystem_VS
 
             namesDropdownRdr.Close();
 
+            //put all existing medicines into a dropdown
             string numMedsStr = "SELECT COUNT(*) FROM 340_rrdc_medicine";
             MySqlCommand numMedsCmd = new MySqlCommand(numMedsStr, conn);
             MySqlDataReader numMedsRdr = numMedsCmd.ExecuteReader();
@@ -75,6 +78,7 @@ namespace DoctorSubsystem_VS
             conn.Close();
         }
 
+        //enable controls after patient is selected
         private void patientsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             prescripNameBox.Enabled = true;
@@ -86,6 +90,7 @@ namespace DoctorSubsystem_VS
             newMedRadio.Enabled = true;
         }
 
+        //input validation methods for adding medicines
         private void medNameBox_TextChanged(object sender, EventArgs e)
         {
             checkMedInfoFilled();
@@ -114,6 +119,7 @@ namespace DoctorSubsystem_VS
                 addMedicineButton.Enabled = false;
         }
 
+        //add medicine to list view and create in table (prescription id will be updated in these later)
         private void addMedicineButton_Click(object sender, EventArgs e)
         {
             conn.Open();
@@ -184,6 +190,7 @@ namespace DoctorSubsystem_VS
 
         }
 
+        //input validation for adding medicines
         private void existingMedCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             addMedicineButton.Enabled = true;
@@ -203,6 +210,7 @@ namespace DoctorSubsystem_VS
                 existingMedCombo.Enabled = false;
         }
 
+        //toggle enabled controls for adding new or existing medicines
         private void newMedRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (newMedRadio.Checked)
@@ -231,6 +239,7 @@ namespace DoctorSubsystem_VS
                 
         }
 
+        //check fields and build prescription based on given info, also fills prescription ID into previously created/assigned medicines
         private void createPrescripButton_Click(object sender, EventArgs e)
         {
             conn.Open();
@@ -292,11 +301,14 @@ namespace DoctorSubsystem_VS
 
             notifPrescripCmd.Parameters.AddWithValue("@body", "Prescription added for " + patientsComboBox.SelectedItem.ToString());
 
+            notifPrescripCmd.ExecuteNonQuery();
+
             conn.Close();
 
             this.Close();
         }
 
+        //input validation for adding prescriptions
         private void prescripReady()
         {
             Console.WriteLine(medicineListView.Items.Count > 0);

@@ -17,6 +17,7 @@ namespace DoctorSubsystem_VS
         string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
         MySqlConnection conn;
 
+        //show notifications
         public Form1()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace DoctorSubsystem_VS
             }
         }
 
+        //toggle between displaying new or all notifications
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -84,33 +86,21 @@ namespace DoctorSubsystem_VS
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
+        //open create prescription form
         private void createPrescriptionButton_Click(object sender, EventArgs e)
         {
             Form createPrescrip = new CreatePrescriptionForm();
             createPrescrip.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //open patient list
         private void button3_Click(object sender, EventArgs e)
         {
             Form patientList = new PatientListForm();
             patientList.Show();
         }
 
+        //view request selected from notification window
         private void button4_Click(object sender, EventArgs e)
         {
             //view Request
@@ -123,6 +113,7 @@ namespace DoctorSubsystem_VS
             Console.WriteLine(selectedID);
         }
 
+        //put read notifs into the list view
         public void displayNotifs(MySqlDataReader reader)
         {
             notifsListView.Items.Clear();
@@ -134,6 +125,7 @@ namespace DoctorSubsystem_VS
             }
         }
 
+        //refresh notifications
         private void refreshButton_Click(object sender, EventArgs e)
         {
             conn.Open();

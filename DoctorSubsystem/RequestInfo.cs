@@ -21,7 +21,8 @@ namespace DoctorSubsystem_VS
         public RequestInfo(int id)
         {
             InitializeComponent();
-
+            
+            //give notifID for data
             thisNotifID = id;
             conn = new MySqlConnection(connStr);
         }
@@ -35,7 +36,7 @@ namespace DoctorSubsystem_VS
         //display: lastmodified, request type, reason, (if applicable) link to prescription 
         private void RequestInfo_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("Entered Load");
+            //assign and display request info
             try
             {
                 conn.Open();
@@ -76,6 +77,16 @@ namespace DoctorSubsystem_VS
                     {
                         this.statusDropdown.SelectedIndex = 1;
                         status = 1;
+
+                        if(reqType == 1)
+                        {
+                            string takeRefillStr = "UPDATE 340_rrdc_prescriptions SET Refills = Refills - 1 INNER JOIN 340_rrdc_requests " +
+                                "ON 340_rrdc_Requests.PrescriptionID = ID WHERE Refills > 0 AND ID = @id";
+                            MySqlCommand takeRefillCmd = new MySqlCommand(takeRefillStr, conn);
+                            takeRefillCmd.Parameters.AddWithValue("@id", reqID);
+
+                            takeRefillCmd.ExecuteNonQuery();
+                        }
                     }
                     else //denied
                     {
@@ -119,6 +130,7 @@ namespace DoctorSubsystem_VS
             
         }
 
+        //input validation for updating
         private void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             //enable/disable updateStatusButton when appropriate
